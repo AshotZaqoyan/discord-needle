@@ -28,7 +28,7 @@ export default class CustomTitleFormatModal extends NeedleModal {
 			.setStyle(TextInputStyle.Short);
 		const maxTitleLength = new TextInputBuilder()
 			.setCustomId("maxTitleLength")
-			.setLabel("Վերնագրի առավելագույն երկարություն (1-100 թիվ)")
+			.setLabel("Առավելագույն երկարություն (1-100 նիշ)")
 			.setRequired(true)
 			.setPlaceholder("50")
 			.setStyle(TextInputStyle.Short);

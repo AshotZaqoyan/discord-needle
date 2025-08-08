@@ -77,6 +77,6 @@ export default class TitleCommand extends NeedleCommand {
 
 		await thread.setName(newThreadName);
 		this.bot.reportThreadRenamed(thread.id);
-		await replyInSecret("Հաջողվեց։");
+		await replyInSecret("Փոփոխված է");
 	}
 }

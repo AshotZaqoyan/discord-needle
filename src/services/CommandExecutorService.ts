@@ -32,8 +32,7 @@ export default class CommandExecutorService {
 		if (context.interaction.replied || !context.interaction.isRepliable()) return;
 
 		const buttonRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
-			this.getBugReportButton(),
-			this.getSupportServerButton(),
+			this.getBugReportButton()
 		);
 
 		await context.interaction.reply({
@@ -55,7 +54,7 @@ export default class CommandExecutorService {
 		return new ButtonBuilder()
 			.setEmoji("🐛")
 			.setLabel("Տեղեկացնել սխալի մասին")
-			.setURL("https://needle.gg/suggest")
+			.setURL("https://discord.com/channels/838687641896484904/1120103221965369494")
 			.setStyle(ButtonStyle.Link);
 	}
 }

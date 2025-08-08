@@ -28,7 +28,7 @@ export default class ConfirmFactoryResetModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const confirmInput = new TextInputBuilder()
 			.setCustomId("confirm")
-			.setLabel("Վերականգնել գործարանային կարգավորումները? (այո/ոչ)")
+			.setLabel("Վերականգնե՞լ կարգավորումները (այո/ոչ)")
 			.setValue("Այո")
 			.setPlaceholder("Ոչ")
 			.setRequired(false)
@@ -37,7 +37,7 @@ export default class ConfirmFactoryResetModal extends NeedleModal {
 		const row = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents([confirmInput]);
 		return new ModalBuilder()
 			.setCustomId(this.customId)
-			.setTitle("Վերականգնել Needle-ը գործարանային կարգավորումներով")
+			.setTitle("Վերականգնել Needle-ի կարգավորումները")
 			.addComponents(row);
 	}
 

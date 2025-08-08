@@ -31,7 +31,7 @@ export default class HelpCommand extends NeedleCommand {
 		return builder.addStringOption(option =>
 			option
 				.setName("filter")
-				.setDescription("Որ հրամաններն եք ցանկանում տեսնել?")
+				.setDescription("Ո՞ր հրամաններն եք ցանկանում տեսնել")
 				.addChoices(
 					{ name: "Այստեղ հասանելի հրամաններ (լռելյայն)", value: "default" },
 					{ name: "Needle-ի բոլոր հրամանները", value: "all" },
@@ -48,7 +48,7 @@ export default class HelpCommand extends NeedleCommand {
 		const commandsEmbed = await this.getCommandsEmbed(member, channel, showAll);
 
 		await context.interaction.reply({
-			content: `Ավելի շատ օգնությո՞ւն է պետք Needle-ի հետ։ Միացեք [աջակցության սերվերին](${this.SUPPORT_SERVER_URL})։`,
+			content: ``,
 			embeds: [commandsEmbed],
 			ephemeral: true,
 		});

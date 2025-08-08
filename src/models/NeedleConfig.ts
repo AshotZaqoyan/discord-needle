@@ -33,7 +33,7 @@ export const defaultConfig: NeedleConfig = {
 		ErrorInsufficientBotPerms: "Բոտը չունի այս գործողությունը կատարելու թույլտվություն։",
 		ErrorMaxThreadRenames: "Թրեդը կարելի է վերանվանել 10 րոպեում միայն երկու անգամ։ Խնդրում ենք փորձել ավելի ուշ։",
 
-		SuccessThreadCreated: "Թրեդը ավտոմատ ստեղծվել է $USER_NICKNAME-ի կողմից $CHANNEL_MENTION-ում",
+		SuccessThreadCreated: "Թրեդը ստեղծվել է ավտոմատ",
 		SuccessThreadArchived:
 			"Թրեդը արխիվացվել է $USER_NICKNAME-ի կողմից։ Ցանկացածը կարող է հաղորդագրություն ուղարկել՝ այն ապարխիվացնելու համար։",
 

@@ -279,8 +279,8 @@ export default class AutoThreadCommand extends NeedleCommand {
 					.setName("toggle")
 					.setDescription("Ավտո-թրեդը միացվա՞ծ լինի, թե՞ անջատված։")
 					.addChoices(
-						{ name: "Ավտո-թրեդը միացված (լռելյայն)", value: ToggleOption.On },
-						{ name: "Ավտո-թրեդը անջատված", value: ToggleOption.Off },
+						{ name: "Ավտո-թրեդը միացնել (լռելյայն)", value: ToggleOption.On },
+						{ name: "Ավտո-թրեդը անջատել", value: ToggleOption.Off },
 					),
 			)
 			.addIntegerOption(option =>
@@ -289,7 +289,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 					.setDescription("Ինչպե՞ս լինի թրեդի վերնագիրը։ 🔥")
 					.addChoices(
 						{ name: "Հաղորդագրության առաջին 50 նիշերը (լռելյայն)", value: TitleType.FirstFiftyChars },
-						{ name: "Մականուն (yyyy-MM-dd) 🔥", value: TitleType.NicknameDate },
+						{ name: "Անուն ազգանուն (yyyy-MM-dd) 🔥", value: TitleType.NicknameDate },
 						{ name: "Հաղորդագրության առաջին տողը", value: TitleType.FirstLineOfMessage },
 						{ name: "Սեփական 🔥", value: TitleType.Custom },
 					),
@@ -297,7 +297,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 			.addIntegerOption(option =>
 				option
 					.setName("reply-message")
-					.setDescription("Ինչպե՞ս պետք է Needle-ը պատասխան տա թրեդում? 🔥")
+					.setDescription("Ինչպե՞ս պետք է Needle-ը պատասխան տա թրեդում 🔥")
 					.addChoices(
 						{
 							name: 'Օգտագործել "SuccessThreadCreate" կարգավորումը (լռելյայն)',
@@ -307,7 +307,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 					),
 			)
 			.addIntegerOption(option =>
-				option.setName("reply-buttons").setDescription("Ինչ տեսք ունենան պատասխանի կոճակները?").addChoices(
+				option.setName("reply-buttons").setDescription("Ի՞նչ տեսք պետք է ունենան պատասխանի կոճակները").addChoices(
 					{
 						name: "Կանաչ արխիվացման կոճակ, blurple խմբագրման կոճակ (լռելյայն)",
 						value: ReplyButtonsOption.Default,
@@ -327,7 +327,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 			.addIntegerOption(option =>
 				option
 					.setName("delete-behavior")
-					.setDescription("Ի՞նչ անել թրեդը, եթե մեկնարկային հաղորդագրությունը ջնջվի?")
+					.setDescription("Ի՞նչ անել թրեդը, եթե մեկնարկային հաղորդագրությունը ջնջվի")
 					.addChoices(
 						{
 							name: "Ջնջել, եթե թրեդը դատարկ է, այլապես արխիվացնել (լռելյայն)",
@@ -341,7 +341,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 			.addIntegerOption(option =>
 				option
 					.setName("archive-behavior")
-					.setDescription("Ինչ պետք է տեղի ունենա, երբ օգտատերերը փակեն թրեդը?")
+					.setDescription("Ի՞նչ պետք է տեղի ունենա, երբ օգտատերերը փակեն թրեդը")
 					.addChoices(
 						{ name: "Արխիվացնել անմիջապես (լռելյայն)", value: ToggleOption.On },
 						{ name: "Թաքցնել 1 ժամ անգործությունից հետո", value: ToggleOption.Off },
@@ -359,7 +359,7 @@ export default class AutoThreadCommand extends NeedleCommand {
 			.addIntegerOption(option =>
 				option
 					.setName("slowmode")
-					.setDescription("Որքա՞ն լինի դանդաղ ռեժիմը ստեղծված թրեդերում?")
+					.setDescription("Որքա՞ն լինի դանդաղ ռեժիմը ստեղծված թրեդերում")
 					.addChoices(
 						{ name: "Անջատված (լռելյայն)", value: 0 },
 						{ name: "1 վայրկյան", value: 1 },
