@@ -21,7 +21,7 @@ import NeedleCommand from "../models/NeedleCommand.js";
 
 export default class HelpCommand extends NeedleCommand {
 	public readonly name = "help";
-	public readonly description = "See Needle's commands";
+	public readonly description = "Դիտել Needle-ի հրամանները";
 	public readonly category = CommandCategory.Info;
 
 	private readonly EMBED_COLOR = "#2f3136";
@@ -31,11 +31,11 @@ export default class HelpCommand extends NeedleCommand {
 		return builder.addStringOption(option =>
 			option
 				.setName("filter")
-				.setDescription("Which commands do you want to see?")
+				.setDescription("Որ հրամաններն եք ցանկանում տեսնել?")
 				.addChoices(
-					{ name: "Available to you in current channel (ᴅᴇꜰᴀᴜʟᴛ)", value: "default" },
-					{ name: "All Needle commands", value: "all" }
-				)
+					{ name: "Այստեղ հասանելի հրամաններ (լռելյայն)", value: "default" },
+					{ name: "Needle-ի բոլոր հրամանները", value: "all" },
+				),
 		);
 	}
 
@@ -48,7 +48,7 @@ export default class HelpCommand extends NeedleCommand {
 		const commandsEmbed = await this.getCommandsEmbed(member, channel, showAll);
 
 		await context.interaction.reply({
-			content: `Need more help with Needle? Join us in the [support server](${this.SUPPORT_SERVER_URL})!`,
+			content: `Ավելի շատ օգնությո՞ւն է պետք Needle-ի հետ։ Միացեք [աջակցության սերվերին](${this.SUPPORT_SERVER_URL})։`,
 			embeds: [commandsEmbed],
 			ephemeral: true,
 		});
@@ -57,7 +57,7 @@ export default class HelpCommand extends NeedleCommand {
 	private async getCommandsEmbed(
 		member: Nullish<GuildMember>,
 		channel: Nullish<GuildTextBasedChannel>,
-		showAll: boolean
+		showAll: boolean,
 	): Promise<EmbedBuilder> {
 		const commands = await this.bot.getAllCommands();
 
@@ -79,13 +79,13 @@ export default class HelpCommand extends NeedleCommand {
 		if (fields.length === 0) {
 			return new EmbedBuilder()
 				.setColor(this.EMBED_COLOR)
-				.setDescription("You do not have permission to use any Needle commands here.");
+				.setDescription("Դուք այստեղ չունեք Needle-ի որևէ հրաման օգտագործելու թույլտվություն։");
 		}
 
 		const builder = new EmbedBuilder().setColor(this.EMBED_COLOR).setFields(fields);
 		if (!seeingAllCommands) {
 			builder.setFooter({
-				text: 'Only showing commands available to you in this channel.\nUse "/help filter: all" to see all commands 👈',
+				text: 'Ցույց ենք տալիս միայն այս ալիքում ձեզ հասանելի հրամանները։\nՕգտագործեք "/help filter: all"՝ բոլոր հրամանները տեսնելու համար 👈',
 			});
 		}
 
@@ -96,7 +96,7 @@ export default class HelpCommand extends NeedleCommand {
 		commands: NeedleCommand[],
 		member: Nullish<GuildMember>,
 		channel: Nullish<GuildTextBasedChannel>,
-		showAll: boolean
+		showAll: boolean,
 	): Promise<string[]> {
 		const output = [];
 		for (const command of commands) {

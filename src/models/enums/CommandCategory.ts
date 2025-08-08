@@ -15,9 +15,9 @@ If not, see <https://www.gnu.org/licenses/>.
 
 // Note: The order of these enum values will be reflected in the /help command
 enum CommandCategory {
-	ThreadOnly = "Threads",
-	Info = "Information",
-	Configuration = "Configuration",
+	ThreadOnly = "Թրեդեր",
+	Info = "Տեղեկություն",
+	Configuration = "Կարգավորում",
 }
 
 export default CommandCategory;

@@ -32,7 +32,7 @@ export default class CloseButton extends NeedleButton {
 	public getBuilder(): ButtonBuilder {
 		return new ButtonBuilder()
 			.setCustomId(this.customId)
-			.setLabel("Archive thread")
+			.setLabel("Արխիվացնել թրեդը")
 			.setStyle(ButtonStyle.Success)
 			.setEmoji("1010182198923636797"); // :archive_3_0:
 	}

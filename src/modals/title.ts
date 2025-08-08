@@ -27,13 +27,13 @@ export default class TitleModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const messageInput = new TextInputBuilder()
 			.setCustomId("title")
-			.setLabel("Title")
+			.setLabel("Վերնագիր")
 			.setRequired(true)
 			.setStyle(TextInputStyle.Short)
 			.setMinLength(1)
 			.setMaxLength(100);
 		const row = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(messageInput);
-		return new ModalBuilder().setCustomId(this.customId).setTitle("Set thread title").addComponents(row);
+		return new ModalBuilder().setCustomId(this.customId).setTitle("Սահմանել թրեդի վերնագիրը").addComponents(row);
 	}
 
 	public async submit(): Promise<void> {

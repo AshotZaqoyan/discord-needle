@@ -26,15 +26,16 @@ export default interface NeedleConfig {
 export const defaultConfig: NeedleConfig = {
 	threadChannels: [],
 	settings: {
-		ErrorUnknown: "An unexpected error occurred. Please try again later.",
-		ErrorOnlyInThread: "You can only perform this action inside a thread.",
-		ErrorNoEffect: "This action will have no effect.",
-		ErrorInsufficientUserPerms: "You do not have permission to perform this action.",
-		ErrorInsufficientBotPerms: "The bot does not have permission to perform this action.",
-		ErrorMaxThreadRenames: "You can only rename a thread twice every 10 minutes. Please try again later.",
+		ErrorUnknown: "Տեղի ունեցավ անհայտ սխալ։ Խնդրում ենք փորձել ավելի ուշ։",
+		ErrorOnlyInThread: "Այս գործողությունը հնարավոր է միայն թրեդում։",
+		ErrorNoEffect: "Այս գործողությունը ազդեցություն չի ունենա։",
+		ErrorInsufficientUserPerms: "Դուք չունեք այս գործողությունը կատարելու թույլտվություն։",
+		ErrorInsufficientBotPerms: "Բոտը չունի այս գործողությունը կատարելու թույլտվություն։",
+		ErrorMaxThreadRenames: "Թրեդը կարելի է վերանվանել 10 րոպեում միայն երկու անգամ։ Խնդրում ենք փորձել ավելի ուշ։",
 
-		SuccessThreadCreated: "Thread automatically created by $USER_NICKNAME in $CHANNEL_MENTION",
-		SuccessThreadArchived: "Thread was archived by $USER_NICKNAME. Anyone can send a message to unarchive it.",
+		SuccessThreadCreated: "Թրեդը ավտոմատ ստեղծվել է $USER_NICKNAME-ի կողմից $CHANNEL_MENTION-ում",
+		SuccessThreadArchived:
+			"Թրեդը արխիվացվել է $USER_NICKNAME-ի կողմից։ Ցանկացածը կարող է հաղորդագրություն ուղարկել՝ այն ապարխիվացնելու համար։",
 
 		EmojiUnanswered: "🆕",
 		EmojiArchived: "✅",

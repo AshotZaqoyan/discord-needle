@@ -33,7 +33,7 @@ export default class CommandExecutorService {
 
 		const buttonRow = new ActionRowBuilder<ButtonBuilder>().addComponents(
 			this.getBugReportButton(),
-			this.getSupportServerButton()
+			this.getSupportServerButton(),
 		);
 
 		await context.interaction.reply({
@@ -46,7 +46,7 @@ export default class CommandExecutorService {
 	private getSupportServerButton(): ButtonBuilder {
 		return new ButtonBuilder()
 			.setEmoji("🙋")
-			.setLabel("Support server")
+			.setLabel("Աջակցության սերվեր")
 			.setURL("https://discord.gg/8BmnndXHp6")
 			.setStyle(ButtonStyle.Link);
 	}
@@ -54,7 +54,7 @@ export default class CommandExecutorService {
 	private getBugReportButton(): ButtonBuilder {
 		return new ButtonBuilder()
 			.setEmoji("🐛")
-			.setLabel("Report a bug")
+			.setLabel("Տեղեկացնել սխալի մասին")
 			.setURL("https://needle.gg/suggest")
 			.setStyle(ButtonStyle.Link);
 	}

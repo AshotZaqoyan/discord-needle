@@ -27,13 +27,16 @@ export default class CustomReplyMessageModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const messageInput = new TextInputBuilder()
 			.setCustomId("message")
-			.setLabel("Custom message (empty = hidden)")
+			.setLabel("Սեփական հաղորդագրություն (դատարկ = թաքնված)")
 			.setRequired(false)
-			.setPlaceholder("Hidden")
+			.setPlaceholder("Թաքնված")
 			.setStyle(TextInputStyle.Paragraph)
 			.setMaxLength(2000);
 		const row = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(messageInput);
-		return new ModalBuilder().setCustomId(this.customId).setTitle("Set a custom reply message").addComponents(row);
+		return new ModalBuilder()
+			.setCustomId(this.customId)
+			.setTitle("Սահմանել սեփական պատասխան հաղորդագրություն")
+			.addComponents(row);
 	}
 
 	public async submit(): Promise<void> {

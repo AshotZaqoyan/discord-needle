@@ -54,7 +54,7 @@ export default class AutothreadChannelConfig {
 		closeButtonText: Nullish<string>,
 		closeButtonStyle: Nullish<string>,
 		titleButtonText: Nullish<string>,
-		titleButtonStyle: Nullish<string>
+		titleButtonStyle: Nullish<string>,
 	) {
 		this.channelId = channelId;
 		this.deleteBehavior = deleteBehavior ?? oldConfig?.deleteBehavior ?? DeleteBehavior.DeleteIfEmptyElseArchive;
@@ -63,9 +63,9 @@ export default class AutothreadChannelConfig {
 		this.slowmode = slowmode ?? oldConfig?.slowmode ?? 0;
 		this.statusReactions = statusReactions ?? oldConfig?.statusReactions ?? ToggleOption.Off;
 
-		this.closeButtonText = closeButtonText ?? oldConfig?.closeButtonText ?? "Archive thread";
+		this.closeButtonText = closeButtonText ?? oldConfig?.closeButtonText ?? "Արխիվացնել թրեդը";
 		this.closeButtonStyle = closeButtonStyle?.toLowerCase() ?? oldConfig?.closeButtonStyle ?? "green";
-		this.titleButtonText = titleButtonText ?? oldConfig?.titleButtonText ?? "Edit title";
+		this.titleButtonText = titleButtonText ?? oldConfig?.titleButtonText ?? "Խմբագրել վերնագիրը";
 		this.titleButtonStyle = titleButtonStyle?.toLowerCase() ?? oldConfig?.titleButtonStyle ?? "blurple";
 
 		this.replyType = replyType ?? oldConfig?.replyType ?? ReplyMessageOption.Default;
@@ -80,7 +80,7 @@ export default class AutothreadChannelConfig {
 	private getCustomReply(oldConfig: Nullish<AutothreadChannelConfig>, incomingCustomReply: Nullish<string>): string {
 		const switchingAwayFromCustom =
 			oldConfig?.replyType === ReplyMessageOption.Custom && this.replyType !== ReplyMessageOption.Custom;
-		return switchingAwayFromCustom ? "" : incomingCustomReply ?? oldConfig?.customReply ?? "";
+		return switchingAwayFromCustom ? "" : (incomingCustomReply ?? oldConfig?.customReply ?? "");
 	}
 
 	private getCustomTitle(oldConfig: Nullish<AutothreadChannelConfig>, incomingCustomTitle: Nullish<string>): string {

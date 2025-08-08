@@ -22,26 +22,26 @@ export default class CustomTitleFormatModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const titleInput = new TextInputBuilder()
 			.setCustomId("title")
-			.setLabel("Title format (RegEx supported)")
+			.setLabel("Վերնագրի ձևաչափը (կայքարեցված է RegEx)")
 			.setRequired(true)
-			.setPlaceholder("Help $USER_NICKNAME - /^[\\S\\s]/g")
+			.setPlaceholder("Օգնություն $USER_NICKNAME - /^[\\S\\s]/g")
 			.setStyle(TextInputStyle.Short);
 		const maxTitleLength = new TextInputBuilder()
 			.setCustomId("maxTitleLength")
-			.setLabel("Max title length (number between 1-100)")
+			.setLabel("Վերնագրի առավելագույն երկարություն (1-100 թիվ)")
 			.setRequired(true)
 			.setPlaceholder("50")
 			.setStyle(TextInputStyle.Short);
 		const regexJoinText = new TextInputBuilder()
 			.setCustomId("regexJoinText")
-			.setLabel("RegEx join (advanced)")
+			.setLabel("RegEx միացում (առաջադեմ)")
 			.setRequired(false)
-			.setPlaceholder("(empty string)")
+			.setPlaceholder("(դատարկ տող)")
 			.setStyle(TextInputStyle.Short);
 
 		return new ModalBuilder()
 			.setCustomId(this.customId)
-			.setTitle("Set a custom title format")
+			.setTitle("Սահմանել սեփական վերնագրի ձևաչափ")
 			.addComponents(makeRow(titleInput), makeRow(maxTitleLength), makeRow(regexJoinText));
 	}
 

@@ -22,7 +22,7 @@ import NeedleCommand from "../models/NeedleCommand.js";
 
 export default class SettingCommand extends NeedleCommand {
 	public readonly name = "setting";
-	public readonly description = "View or change Needle settings for this server";
+	public readonly description = "Դիտել կամ փոխել Needle-ի կարգավորումները այս սերվերի համար";
 	public readonly category = CommandCategory.Configuration;
 	protected readonly defaultPermissions = PermissionFlagsBits.ManageThreads;
 
@@ -35,9 +35,9 @@ export default class SettingCommand extends NeedleCommand {
 		return builder.addIntegerOption(option =>
 			option
 				.setName("setting-name")
-				.setDescription("The name of the setting")
+				.setDescription("Կարգավորման անունը")
 				.setRequired(true)
-				.setChoices(...choices)
+				.setChoices(...choices),
 		);
 	}
 
@@ -54,7 +54,7 @@ export default class SettingCommand extends NeedleCommand {
 		const submitInteraction = await modal.openAndAwaitSubmit(
 			context.interaction,
 			[{ customId: "setting", value: oldValue }],
-			settingName
+			settingName,
 		);
 
 		context.setInteractionToReplyTo(submitInteraction);
@@ -65,12 +65,12 @@ export default class SettingCommand extends NeedleCommand {
 		}
 
 		if (newValue.trim().length === 0) {
-			return context.replyInSecret("Setting must be at least 1 non-whitespace character.");
+			return context.replyInSecret("Կարգավորումը պետք է պարունակի առնվազն մեկ ոչ-դատարկ նիշ։");
 		}
 
 		autoThreadConfig.settings[settingName] = newValue;
 		this.bot.configs.set(guildId, autoThreadConfig);
 
-		await context.replyInSecret("Setting successfully changed.");
+		await context.replyInSecret("Կարգավորումը հաջողությամբ փոխվեց։");
 	}
 }
