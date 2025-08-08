@@ -27,11 +27,11 @@ export default class SettingModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const messageInput = new TextInputBuilder()
 			.setCustomId("setting")
-			.setLabel("value")
+			.setLabel("արժեք")
 			.setRequired(true)
 			.setStyle(TextInputStyle.Paragraph);
 		const row = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents(messageInput);
-		return new ModalBuilder().setCustomId(this.customId).setTitle("Change setting value").addComponents(row);
+		return new ModalBuilder().setCustomId(this.customId).setTitle("Փոխել կարգավորման արժեքը").addComponents(row);
 	}
 
 	public async submit(): Promise<void> {

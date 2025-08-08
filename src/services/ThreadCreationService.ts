@@ -27,7 +27,7 @@ import {
 } from "discord.js";
 import { getRequiredPermissions, tryReact } from "../helpers/djsHelpers.js";
 import { wait } from "../helpers/promiseHelpers.js";
-import { clampWithElipse, extractRegex, plural } from "../helpers/stringHelpers.js";
+import { clampWithElipse, extractRegex } from "../helpers/stringHelpers.js";
 import type AutothreadChannelConfig from "../models/AutothreadChannelConfig.js";
 import ReplyMessageOption from "../models/enums/ReplyMessageOption.js";
 import ToggleOption from "../models/enums/ToggleOption.js";
@@ -93,7 +93,7 @@ export default class ThreadCreationService {
 		const requiredPermissions = getRequiredPermissions(channelConfig.slowmode, rawReplyMessageContent);
 		if (!botPermissions.has(requiredPermissions)) {
 			const missing = botPermissions.missing(requiredPermissions);
-			const errorMessage = `Missing ${plural("permission", missing.length)}:`;
+			const errorMessage = `Պակասում է ${missing.length > 1 ? "թույլտվություններ" : "թույլտվություն"}:`;
 			await message.channel.send(`${errorMessage}\n    - ${missing.join("\n    - ")}`);
 			return;
 		}
@@ -165,7 +165,7 @@ export default class ThreadCreationService {
 
 		const title = await variables.replace(rawTitle);
 		const output = clampWithElipse(title, config.titleMaxLength);
-		return output.trim().length > 0 ? output : "New Thread";
+		return output.trim().length > 0 ? output : "Նոր թրեդ";
 	}
 
 	private getMessageContent(message: Message, variables: MessageVariables) {
@@ -223,7 +223,7 @@ export default class ThreadCreationService {
 			case "red":
 				return ButtonStyle.Danger;
 			default:
-				throw new Error("Invalid button color: " + setting.toLowerCase());
+				throw new Error("Սխալ կոճակի գույն: " + setting.toLowerCase());
 		}
 	}
 }

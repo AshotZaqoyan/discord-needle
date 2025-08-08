@@ -21,7 +21,7 @@ import NeedleCommand from "../models/NeedleCommand.js";
 
 export default class CloseCommand extends NeedleCommand {
 	public readonly name = "close";
-	public readonly description = "Close a thread";
+	public readonly description = "Փակել թրեդը";
 	public readonly category = CommandCategory.ThreadOnly;
 
 	public async hasPermissionToExecuteHere(member: GuildMember, channel: GuildTextBasedChannel): Promise<boolean> {

@@ -32,7 +32,7 @@ export default class TitleButton extends NeedleButton {
 	public getBuilder(): ButtonBuilder {
 		return new ButtonBuilder()
 			.setCustomId(this.customId)
-			.setLabel("Edit title")
+			.setLabel("Խմբագրել վերնագիրը")
 			.setStyle(ButtonStyle.Primary)
 			.setEmoji("1010182200018350111"); // :title_3_0:
 	}

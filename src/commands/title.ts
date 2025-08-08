@@ -22,17 +22,17 @@ import NeedleCommand from "../models/NeedleCommand.js";
 
 export default class TitleCommand extends NeedleCommand {
 	public readonly name = "title";
-	public readonly description = "Change the title of a thread";
+	public readonly description = "Փոխել թրեդի վերնագիրը";
 	public readonly category = CommandCategory.ThreadOnly;
 
 	public addOptions(builder: SlashCommandBuilder): SlashCommandBuilderWithOptions {
 		return builder.addStringOption(option =>
 			option
 				.setName("value")
-				.setDescription("The new title of the thread")
+				.setDescription("Թրեդի նոր վերնագիրը")
 				.setMinLength(1)
 				.setMaxLength(100)
-				.setRequired(true)
+				.setRequired(true),
 		);
 	}
 
@@ -77,6 +77,6 @@ export default class TitleCommand extends NeedleCommand {
 
 		await thread.setName(newThreadName);
 		this.bot.reportThreadRenamed(thread.id);
-		await replyInSecret("Success!");
+		await replyInSecret("Հաջողվեց։");
 	}
 }

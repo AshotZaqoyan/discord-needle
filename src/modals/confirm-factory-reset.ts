@@ -28,16 +28,16 @@ export default class ConfirmFactoryResetModal extends NeedleModal {
 	public get builder(): ModalBuilder {
 		const confirmInput = new TextInputBuilder()
 			.setCustomId("confirm")
-			.setLabel("Factory reset? (yes/no)")
-			.setValue("Yes")
-			.setPlaceholder("No")
+			.setLabel("Վերականգնել գործարանային կարգավորումները? (այո/ոչ)")
+			.setValue("Այո")
+			.setPlaceholder("Ոչ")
 			.setRequired(false)
 			.setStyle(TextInputStyle.Short);
 
 		const row = new ActionRowBuilder<ModalActionRowComponentBuilder>().addComponents([confirmInput]);
 		return new ModalBuilder()
 			.setCustomId(this.customId)
-			.setTitle("Reset Needle to factory settings")
+			.setTitle("Վերականգնել Needle-ը գործարանային կարգավորումներով")
 			.addComponents(row);
 	}
 
@@ -45,14 +45,14 @@ export default class ConfirmFactoryResetModal extends NeedleModal {
 		if (!context.isInGuild() || !context.isModalSubmit()) return;
 
 		const { replyInSecret, replyInPublic, interaction, settings } = context;
-		const isConfirmed = interaction.fields.getTextInputValue("confirm").toLowerCase() === "yes";
+		const isConfirmed = interaction.fields.getTextInputValue("confirm").toLowerCase() === "այո";
 		if (!isConfirmed) {
-			return replyInSecret("Action cancelled.");
+			return replyInSecret("Գործողությունը չեղարկվեց։");
 		}
 
 		const success = this.bot.configs.delete(interaction.guildId);
 		return success
-			? replyInPublic("Successfully reset Needle to factory settings.")
+			? replyInPublic("Needle-ը հաջողությամբ վերականգնվեց գործարանային կարգավորումներով։")
 			: replyInSecret(settings.ErrorNoEffect);
 	}
 }

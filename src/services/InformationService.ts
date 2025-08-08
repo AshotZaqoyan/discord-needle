@@ -56,13 +56,13 @@ export default class InformationService {
 			}
 		}
 
-		return largestServer ? `${largestServer.name} (${formatNumber(largestServer.memberCount)} members)` : "None";
+		return largestServer ? `${largestServer.name} (${formatNumber(largestServer.memberCount)} մասնակիցներ)` : "Չկա";
 	}
 
 	// Generate a string like 1d 8h 23m 12s or 8h 23m 0s
 	public getUptimeString(): string {
 		const uptimeMs = this.bot.client.uptime;
-		if (!uptimeMs) return "Not online";
+		if (!uptimeMs) return "Չի միացված";
 
 		const days = Math.floor(uptimeMs / 1000 / 60 / 60 / 24);
 		const hours = Math.floor((uptimeMs / 1000 / 60 / 60) % 24);

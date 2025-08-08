@@ -20,14 +20,14 @@ import NeedleModal from "../models/NeedleModal.js";
 export default class CustomReplyButtonsModal extends NeedleModal {
 	public customId = "custom-reply-buttons";
 	public get builder(): ModalBuilder {
-		const closeText = makeRow(this.getTextInput("Close"));
-		const closeStyle = makeRow(this.getStyleInput("Close", "Green"));
-		const titleText = makeRow(this.getTextInput("Title"));
-		const titleStyle = makeRow(this.getStyleInput("Title", "Blurple"));
+		const closeText = makeRow(this.getTextInput("Close", "Փակել"));
+		const closeStyle = makeRow(this.getStyleInput("Close", "Green", "Փակել"));
+		const titleText = makeRow(this.getTextInput("Title", "Վերնագիր"));
+		const titleStyle = makeRow(this.getStyleInput("Title", "Blurple", "Վերնագիր"));
 
 		return new ModalBuilder()
 			.setCustomId(this.customId)
-			.setTitle("Set custom buttons")
+			.setTitle("Սահմանել սեփական կոճակները")
 			.setComponents(closeText, closeStyle, titleText, titleStyle);
 	}
 
@@ -35,20 +35,20 @@ export default class CustomReplyButtonsModal extends NeedleModal {
 		// Not used, we only use openAndAwaitSubmit on this modal
 	}
 
-	private getTextInput(name: string): TextInputBuilder {
+	private getTextInput(name: string, label: string): TextInputBuilder {
 		return new TextInputBuilder()
 			.setCustomId(name.toLowerCase() + "Text")
-			.setLabel(name + " button text (empty = hidden)")
+			.setLabel(label + " կոճակի տեքստը (դատարկ = թաքնված)")
 			.setRequired(false)
-			.setPlaceholder("Hidden")
+			.setPlaceholder("Թաքնված")
 			.setStyle(TextInputStyle.Short)
 			.setMaxLength(80);
 	}
 
-	private getStyleInput(name: string, placeholder: string): TextInputBuilder {
+	private getStyleInput(name: string, placeholder: string, label: string): TextInputBuilder {
 		return new TextInputBuilder()
 			.setCustomId(name.toLowerCase() + "Style")
-			.setLabel(name + " button style (blurple/grey/green/red)")
+			.setLabel(label + " կոճակի ոճը (blurple/grey/green/red)")
 			.setRequired(true)
 			.setPlaceholder(placeholder.toUpperCase())
 			.setStyle(TextInputStyle.Short)

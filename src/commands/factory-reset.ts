@@ -20,7 +20,7 @@ import NeedleCommand from "../models/NeedleCommand.js";
 
 export default class FactoryResetCommand extends NeedleCommand {
 	public readonly name = "factory-reset";
-	public readonly description = "Reset Needle to factory settings";
+	public readonly description = "Վերականգնել Needle-ը գործարանային կարգավորումներով";
 	public readonly category = CommandCategory.Configuration;
 	protected readonly defaultPermissions = PermissionFlagsBits.ManageThreads;
 
